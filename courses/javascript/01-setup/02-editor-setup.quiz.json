@@ -1,0 +1,40 @@
+{
+  "lesson": "editor-setup",
+  "passScore": 2,
+  "questions": [
+    {
+      "id": "q1",
+      "type": "multiple-choice",
+      "prompt": "تفاوت کار ESLint و Prettier چیست؟",
+      "options": [
+        "ESLint برای JavaScript است و Prettier برای TypeScript",
+        "ESLint اشتباهات کد را پیدا می‌کند، Prettier ظاهر کد را مرتب می‌کند",
+        "هر دو یک کار می‌کنند، فقط یکی سریع‌تر است",
+        "ESLint کد را اجرا می‌کند، Prettier آن را ذخیره می‌کند"
+      ],
+      "answer": 1,
+      "explanation": "ESLint می‌گوید کد اشکال دارد، مثلا متغیر استفاده‌نشده. Prettier فقط شکل ظاهری را درست می‌کند و به معنی کد کاری ندارد."
+    },
+    {
+      "id": "q2",
+      "type": "multiple-choice",
+      "prompt": "چرا باید پوشه پروژه را در VS Code باز کنیم و نه یک فایل تنها را؟",
+      "options": [
+        "چون باز کردن فایل تنها در VS Code ممکن نیست",
+        "چون فقط در این حالت terminal باز می‌شود",
+        "چون فقط در این حالت VS Code فایل package.json و کتابخانه‌ها را می‌شناسد",
+        "چون فایل تنها را نمی‌شود ذخیره کرد"
+      ],
+      "answer": 2,
+      "explanation": "بدون باز بودن پوشه، ادیتور `package.json` را نمی‌بیند و نمی‌داند چه کتابخانه‌هایی نصب شده‌اند، پس راهنمایی و تشخیص خطایش ناقص می‌شود."
+    },
+    {
+      "id": "q3",
+      "type": "fill-blank",
+      "prompt": "تنظیمی که باعث می‌شود کد هنگام ذخیره خودکار مرتب شود را کامل کنید.",
+      "code": "\"editor.___\": true",
+      "answer": ["formatOnSave"],
+      "explanation": "`editor.formatOnSave` هر بار که فایل را ذخیره می‌کنید، formatter انتخاب‌شده را اجرا می‌کند."
+    }
+  ]
+}

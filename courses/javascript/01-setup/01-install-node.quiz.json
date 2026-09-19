@@ -1,0 +1,36 @@
+{
+  "lesson": "install-node",
+  "passScore": 2,
+  "questions": [
+    {
+      "id": "q1",
+      "type": "multiple-choice",
+      "prompt": "چرا در این دوره نسخه LTS از Node.js را نصب می‌کنیم؟",
+      "options": [
+        "چون تنها نسخه‌ای است که pnpm را پشتیبانی می‌کند",
+        "چون پایدار است و مدت طولانی پشتیبانی می‌شود",
+        "چون از نسخه Current جدیدتر است",
+        "چون حجم کمتری دارد و سریع‌تر نصب می‌شود"
+      ],
+      "answer": 1,
+      "explanation": "LTS یعنی Long Term Support. نسخه Current در واقع جدیدتر است، اما برای یادگیری به ویژگی‌های آزمایشی آن نیازی ندارید."
+    },
+    {
+      "id": "q2",
+      "type": "output",
+      "prompt": "بعد از نصب موفق Node.js، خروجی این دستور کدام شکل است؟",
+      "code": "node -v",
+      "options": ["v22.11.0", "node version 22", "22", "command not found"],
+      "answer": 0,
+      "explanation": "خروجی با حرف v شروع می‌شود و بعد شماره کامل نسخه می‌آید. اگر `command not found` دیدید، terminal را ببندید و دوباره باز کنید."
+    },
+    {
+      "id": "q3",
+      "type": "fill-blank",
+      "prompt": "دستور نصب کتابخانه chalk در پروژه را کامل کنید.",
+      "code": "pnpm ___ chalk",
+      "answer": ["add"],
+      "explanation": "در pnpm دستور نصب یک کتابخانه `pnpm add` است. معادل آن در npm دستور `npm install` است."
+    }
+  ]
+}
