@@ -18,6 +18,30 @@ courses/
 Folder and file number prefixes set the order. They never appear in URLs — the site builds
 paths from `slug` fields, e.g. `techfarsi.com/learn/javascript/install-node`.
 
+## Course metadata
+
+Each course has a `meta.json` at its root:
+
+```json
+{
+  "slug": "typescript",
+  "title": "...",
+  "description": "...",
+  "language": "fa",
+  "level": "beginner",
+  "order": 3,
+  "prerequisites": ["javascript"],
+  "modules": [
+    { "slug": "setup", "title": "...", "order": 1, "lessons": ["setup-typescript"] }
+  ]
+}
+```
+
+`order` sets the course's position in the site's course list. `prerequisites` is an optional
+array of course slugs the site shows as "take this first"; omit it when a course stands alone.
+`modules[].lessons` lists lesson slugs in teaching order, and every lesson file must appear in
+exactly one of them.
+
 ## Lesson format
 
 Every lesson is the same shape, so writing scales and the site can render it generically:
