@@ -1,0 +1,126 @@
+---
+title: type دادن به function ها
+description: ورودی و خروجی function ها را مشخص می‌کنید تا اشتباه صدا زدن غیرممکن شود.
+slug: typing-functions
+order: 3
+duration: 5
+level: beginner
+objectives:
+  - می‌توانید برای ورودی و خروجی یک function نوع مشخص کنید.
+  - می‌توانید ورودی اختیاری و ورودی با مقدار پیش‌فرض بنویسید.
+tags: [typescript, functions, types]
+---
+
+function ها جایی هستند که TypeScript بیشترین سود را می‌دهد. یک function را یک بار می‌نویسید و ده جا صدا می‌زنید، پس هر اشتباهی در صدا زدنش ده برابر تکرار می‌شود.
+
+## ورودی و خروجی
+
+```ts
+function add(a: number, b: number): number {
+  return a + b;
+}
+```
+
+ورودی‌ها حتما باید type داشته باشند، چون TypeScript نمی‌تواند حدس بزند چه چیزی به function داده می‌شود.
+
+اما `: number` بعد از پرانتز، یعنی نوع خروجی، اختیاری است. TypeScript خودش از روی `return` می‌فهمد.
+
+<Callout type="info">
+با این حال نوشتن نوع خروجی در function های مهم ارزش دارد: اگر روزی کد داخل function عوض شود و چیز دیگری برگرداند، خطا همان‌جا گرفته می‌شود، نه ده جای دیگری که صدایش زده‌اند.
+</Callout>
+
+حالا امتحان کنید:
+
+```ts
+add(4, '7');
+```
+
+خطا. در JavaScript ساده این کد بی‌سروصدا `'47'` می‌داد.
+
+## ورودی اختیاری و پیش‌فرض
+
+```ts
+function greet(name: string, title?: string) {
+  if (title) {
+    return `سلام ${title} ${name}`;
+  }
+
+  return `سلام ${name}`;
+}
+```
+
+علامت `?` یعنی می‌شود این ورودی را نداد. داخل function، مقدار `title` یا متن است یا `undefined`، و TypeScript تا وقتی بررسی‌اش نکنید اجازه استفاده مستقیم نمی‌دهد.
+
+اگر مقدار پیش‌فرض بدهید، دیگر به بررسی نیاز ندارید:
+
+```ts
+function greet(name: string, title = 'آقای') {
+  return `سلام ${title} ${name}`;
+}
+```
+
+اینجا `: string` لازم نیست، چون مقدار پیش‌فرض خودش type را مشخص می‌کند.
+
+<Callout type="warn">
+ورودی‌های اختیاری همیشه بعد از ورودی‌های ضروری می‌آیند. `function f(a?: string, b: number)` خطا می‌دهد.
+</Callout>
+
+## function که چیزی برنمی‌گرداند
+
+```ts
+function logUser(user: User): void {
+  console.log(user.name);
+}
+```
+
+`void` یعنی این function مقداری برنمی‌گرداند. اگر جایی بنویسید `const x = logUser(ali)`، مقدار `x` برابر `undefined` می‌شود و TypeScript جلویتان را می‌گیرد.
+
+## object به عنوان ورودی
+
+وقتی تعداد ورودی‌ها از سه بیشتر شد، به جای ردیف کردن آنها یک object بگیرید:
+
+```ts
+type CreateUser = {
+  name: string;
+  age: number;
+  isAdmin?: boolean;
+};
+
+function createUser({ name, age, isAdmin = false }: CreateUser) {
+  console.log(name, age, isAdmin);
+}
+
+createUser({ name: 'علی', age: 30 });
+```
+
+دلیلش فقط تمیزی کد نیست: با این روش هنگام صدا زدن، اسم هر مقدار معلوم است. `createUser({ name: 'علی', age: 30 })` خواناتر از `createUser('علی', 30, false)` است، و جابه‌جا نوشتن دو ورودی هم‌نوع دیگر ممکن نیست.
+
+## تمرین
+
+function ای به اسم `formatPrice` بنویسید که یک عدد بگیرد و یک واحد اختیاری، و متنی مثل `120000 تومان` برگرداند. اگر واحد داده نشد، پیش‌فرض `تومان` باشد.
+
+<Solution>
+
+```ts
+function formatPrice(amount: number, currency = 'تومان'): string {
+  return `${amount} ${currency}`;
+}
+
+console.log(formatPrice(120000));
+console.log(formatPrice(50, 'دلار'));
+```
+
+خروجی:
+
+```
+120000 تومان
+50 دلار
+```
+
+چون `currency` مقدار پیش‌فرض دارد، هم اختیاری است و هم داخل function قطعا یک متن است، پس به بررسی `if` نیازی نیست.
+
+</Solution>
+
+## در ماژول بعد
+
+با type ها روی داده واقعی کار می‌کنیم: پاسخ یک API، آرایه‌ها و حالت‌های خطا.

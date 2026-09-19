@@ -1,0 +1,18 @@
+{
+  "slug": "typescript",
+  "title": "تایپ‌اسکریپت، از نصب تا کد مطمئن",
+  "description": "بعد از JavaScript، این دوره به شما نشان می‌دهد چطور با type ها خطاها را قبل از اجرا بگیرید.",
+  "language": "fa",
+  "level": "beginner",
+  "order": 3,
+  "prerequisites": ["javascript"],
+  "modules": [
+    {
+      "slug": "setup",
+      "title": "راه‌اندازی و اولین type ها",
+      "description": "TypeScript را به پروژه اضافه می‌کنید و اولین type ها را می‌نویسید.",
+      "order": 1,
+      "lessons": ["setup-typescript", "first-types", "typing-functions"]
+    }
+  ]
+}

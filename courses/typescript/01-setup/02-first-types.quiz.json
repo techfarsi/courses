@@ -1,0 +1,46 @@
+{
+  "lesson": "first-types",
+  "passScore": 2,
+  "questions": [
+    {
+      "id": "q1",
+      "type": "multiple-choice",
+      "prompt": "چرا در `const name = 'علی'` نوشتن `: string` توصیه نمی‌شود؟",
+      "options": [
+        "چون باعث خطا می‌شود",
+        "چون TypeScript خودش type را از روی مقدار می‌فهمد و نوشتنش فقط کد را شلوغ می‌کند",
+        "چون فقط برای let مجاز است",
+        "چون سرعت بررسی type ها را کم می‌کند"
+      ],
+      "answer": 1,
+      "explanation": "به این inference می‌گویند. type اضافه در این حالت هیچ خطای جدیدی نمی‌گیرد."
+    },
+    {
+      "id": "q2",
+      "type": "output",
+      "prompt": "این کد چه می‌شود؟",
+      "code": "let status: 'draft' | 'published' = 'draft';\n\nstatus = 'deleted';",
+      "options": [
+        "بدون مشکل اجرا می‌شود",
+        "هنگام اجرا خطا می‌دهد",
+        "TypeScript قبل از اجرا خطا می‌گیرد",
+        "مقدار status برابر undefined می‌شود"
+      ],
+      "answer": 2,
+      "explanation": "union فهرست مقدارهای مجاز را مشخص می‌کند. `'deleted'` در آن فهرست نیست، پس خطا همان لحظه در ادیتور دیده می‌شود."
+    },
+    {
+      "id": "q3",
+      "type": "multiple-choice",
+      "prompt": "چرا TypeScript روی خط `console.log(found.age)` بعد از یک find خطا می‌گیرد؟",
+      "options": [
+        "چون find همیشه undefined برمی‌گرداند",
+        "چون age باید با علامت سوال تعریف شود",
+        "چون find ممکن است چیزی پیدا نکند، پس found می‌تواند undefined باشد",
+        "چون find را باید داخل function صدا زد"
+      ],
+      "answer": 2,
+      "explanation": "با یک `if (found)` دور آن، TypeScript می‌فهمد مقدار قطعا وجود دارد و خطا برطرف می‌شود. به این narrowing می‌گویند."
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 {
   "slug": "javascript",
-  "title": "جاوااسکریپت و تایپ‌اسکریپت، از نصب تا اولین پروژه",
-  "description": "یک مسیر کوتاه و پروژه‌محور برای شروع جدی با JavaScript و TypeScript. بدون حاشیه، با تمرین و آزمون در هر درس.",
+  "title": "جاوااسکریپت، از نصب تا اولین پروژه",
+  "description": "یک مسیر کوتاه و پروژه‌محور برای شروع جدی با JavaScript. بدون حاشیه، با تمرین و آزمون در هر درس.",
   "language": "fa",
   "level": "beginner",
   "order": 1,
@@ -11,7 +11,11 @@
       "title": "راه‌اندازی و اولین برنامه",
       "description": "محیط کار را آماده می‌کنید و اولین کد خود را اجرا می‌کنید.",
       "order": 1,
-      "lessons": ["install-node", "editor-setup", "first-script"]
+      "lessons": [
+        "install-node",
+        "editor-setup",
+        "first-script"
+      ]
     }
   ]
 }
