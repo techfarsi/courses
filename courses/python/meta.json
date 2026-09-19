@@ -1,0 +1,17 @@
+{
+  "slug": "python",
+  "title": "پایتون، از نصب تا اولین پروژه",
+  "description": "یک مسیر کوتاه و پروژه‌محور برای شروع جدی با Python. بدون حاشیه، با تمرین و آزمون در هر درس.",
+  "language": "fa",
+  "level": "beginner",
+  "order": 2,
+  "modules": [
+    {
+      "slug": "setup",
+      "title": "راه‌اندازی و اولین برنامه",
+      "description": "محیط کار را آماده می‌کنید و اولین کد خود را اجرا می‌کنید.",
+      "order": 1,
+      "lessons": ["install-python", "editor-setup", "first-script"]
+    }
+  ]
+}
