@@ -1,0 +1,17 @@
+{
+  "slug": "ai",
+  "title": "کار با هوش مصنوعی، از prompt تا agent",
+  "description": "یاد می‌گیرید مدل‌های زبانی مثل ChatGPT و Claude واقعا چطور کار می‌کنند، چطور از آنها نتیجه درست بگیرید و کجا نباید به آنها اعتماد کنید.",
+  "language": "fa",
+  "level": "beginner",
+  "order": 4,
+  "modules": [
+    {
+      "slug": "foundations",
+      "title": "مبانی مدل‌های زبانی",
+      "description": "مدل ذهنی درست از اینکه یک LLM چیست، چه می‌تواند و چه نمی‌تواند.",
+      "order": 1,
+      "lessons": ["what-is-an-llm", "writing-prompts", "grounding-and-context"]
+    }
+  ]
+}
