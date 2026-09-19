@@ -1,0 +1,131 @@
+---
+title: اولین type ها
+description: می‌بینید TypeScript کجا خودش type را حدس می‌زند و کجا باید بنویسید.
+slug: first-types
+order: 2
+duration: 5
+level: beginner
+objectives:
+  - می‌توانید تشخیص دهید کجا نوشتن type لازم است و کجا نیست.
+  - می‌توانید از union برای مقدارهایی که چند حالت دارند استفاده کنید.
+tags: [typescript, types, inference]
+---
+
+در درس قبل نوشتیم `const name: string = 'علی'`. حالا آن `: string` را بردارید:
+
+```ts
+const name = 'علی';
+```
+
+روی اسم متغیر نگه دارید. ادیتور می‌گوید `string`. خود TypeScript از روی مقدار فهمید.
+
+به این **inference** می‌گویند، و قاعده اصلی کار با TypeScript همین است:
+
+<Callout type="info">
+وقتی type از روی مقدار معلوم است، ننویسیدش. type اضافه فقط کد را شلوغ می‌کند و هیچ خطایی نمی‌گیرد.
+</Callout>
+
+پس کد تمیز TypeScript کمتر از چیزی که فکر می‌کنید type دارد.
+
+## پس کجا لازم است
+
+سه جا:
+
+**۱. وقتی هنوز مقداری ندارید**
+
+```ts
+let selected: string;
+```
+
+**۲. ورودی function ها.** TypeScript نمی‌تواند حدس بزند چه چیزی به function داده می‌شود:
+
+```ts
+function greet(name: string) {
+  console.log(`سلام ${name}`);
+}
+```
+
+**۳. وقتی مقدار می‌تواند چند حالت داشته باشد**
+
+```ts
+let status: 'draft' | 'published' = 'draft';
+```
+
+این خط می‌گوید `status` فقط یکی از این دو متن می‌تواند باشد. به این **union** می‌گویند و یکی از مفیدترین چیزهای TypeScript است. اگر جایی بنویسید `status = 'deleted'`، همان لحظه خطا می‌گیرید.
+
+نکته مهم اینکه این کار جای یک دسته کامل از bug ها را می‌گیرد: غلط املایی در مقدارهای ثابت. در JavaScript ساده `'publised'` یک متن کاملا معتبر است و برنامه بدون هیچ خطایی اشتباه کار می‌کند.
+
+## type خودتان را بسازید
+
+وقتی یک شکل داده را چند جا استفاده می‌کنید، اسم بگذارید رویش:
+
+```ts
+type User = {
+  name: string;
+  age: number;
+  email?: string;
+};
+
+const ali: User = {
+  name: 'علی',
+  age: 30,
+};
+```
+
+علامت `?` یعنی این فیلد اختیاری است. به همین دلیل نبودن `email` در بالا خطا نیست.
+
+اگر `age` را بردارید، خطا می‌گیرید. اگر فیلدی اضافه کنید که در `User` نیست، هم خطا می‌گیرید.
+
+## مقداری که ممکن است نباشد
+
+اینجا جایی است که TypeScript بیشترین ارزش را دارد:
+
+```ts
+const found = users.find((u) => u.name === 'علی');
+
+console.log(found.age);
+```
+
+خط دوم خطا می‌گیرد. چون `find` ممکن است چیزی پیدا نکند، پس `found` یا یک `User` است یا `undefined`، و `undefined.age` برنامه را از کار می‌اندازد.
+
+راه درست این است که اول بررسی کنید:
+
+```ts
+const found = users.find((u) => u.name === 'علی');
+
+if (found) {
+  console.log(found.age);
+}
+```
+
+داخل `if`، خود TypeScript می‌فهمد که `found` قطعا وجود دارد و دیگر شکایت نمی‌کند. به این **narrowing** می‌گویند.
+
+همین یک مورد، بیشتر از هر چیز دیگری در TypeScript جلوی خطای زمان اجرا را می‌گیرد.
+
+## تمرین
+
+یک type به اسم `Product` بسازید با فیلدهای `title` از نوع متن، `price` از نوع عدد، و `stock` که فقط می‌تواند یکی از سه حالت `in-stock`، `low` یا `out` باشد. بعد یک مقدار از آن بسازید.
+
+<Solution>
+
+```ts
+type Product = {
+  title: string;
+  price: number;
+  stock: 'in-stock' | 'low' | 'out';
+};
+
+const book: Product = {
+  title: 'کتاب',
+  price: 120000,
+  stock: 'in-stock',
+};
+```
+
+امتحان کنید: `stock` را به `'available'` تغییر دهید. بلافاصله خطا می‌گیرید، چون این مقدار در فهرست حالت‌های مجاز نیست.
+
+</Solution>
+
+## در درس بعد
+
+به function ها type می‌دهیم، جایی که بیشترین سود را می‌گیرید.

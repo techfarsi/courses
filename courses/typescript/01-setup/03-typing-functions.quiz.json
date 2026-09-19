@@ -1,0 +1,41 @@
+{
+  "lesson": "typing-functions",
+  "passScore": 2,
+  "questions": [
+    {
+      "id": "q1",
+      "type": "multiple-choice",
+      "prompt": "کدام مورد در یک function حتما باید type داشته باشد؟",
+      "options": [
+        "فقط نوع خروجی",
+        "ورودی‌ها، چون TypeScript نمی‌تواند حدس بزند چه چیزی به function داده می‌شود",
+        "هر دو، وگرنه کد اجرا نمی‌شود",
+        "هیچ‌کدام، چون همه چیز حدس زده می‌شود"
+      ],
+      "answer": 1,
+      "explanation": "نوع خروجی معمولا از روی `return` حدس زده می‌شود، اما ورودی‌ها منبعی برای حدس زدن ندارند."
+    },
+    {
+      "id": "q2",
+      "type": "output",
+      "prompt": "این کد چه می‌شود؟",
+      "code": "function add(a: number, b: number) {\n  return a + b;\n}\n\nadd(4, '7');",
+      "options": [
+        "عدد 11 برمی‌گرداند",
+        "متن '47' برمی‌گرداند",
+        "TypeScript قبل از اجرا خطا می‌گیرد",
+        "هنگام اجرا خطا می‌دهد"
+      ],
+      "answer": 2,
+      "explanation": "ورودی دوم باید number باشد. در JavaScript ساده همین کد بی‌سروصدا `'47'` می‌داد، که دقیقا همان bug ای است که TypeScript جلویش را می‌گیرد."
+    },
+    {
+      "id": "q3",
+      "type": "fill-blank",
+      "prompt": "ورودی title را اختیاری کنید.",
+      "code": "function greet(name: string, title___: string) {}",
+      "answer": ["?"],
+      "explanation": "علامت `?` ورودی را اختیاری می‌کند. داخل function مقدار آن یا متن است یا undefined، پس قبل از استفاده باید بررسی شود."
+    }
+  ]
+}
