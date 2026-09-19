@@ -1,0 +1,40 @@
+{
+  "lesson": "install-python",
+  "passScore": 2,
+  "questions": [
+    {
+      "id": "q1",
+      "type": "multiple-choice",
+      "prompt": "چرا هر پروژه Python کتابخانه‌های خودش را در یک virtual environment جدا نگه می‌دارد؟",
+      "options": [
+        "چون نصب روی خود سیستم امکان‌پذیر نیست",
+        "تا پروژه‌هایی که به نسخه‌های متفاوت یک کتابخانه نیاز دارند به هم نخورند",
+        "چون کتابخانه‌ها در محیط جدا سریع‌تر اجرا می‌شوند",
+        "چون Python بدون آن اجرا نمی‌شود"
+      ],
+      "answer": 1,
+      "explanation": "بدون محیط جدا، نصب یک نسخه جدید برای یک پروژه می‌تواند پروژه دیگری را از کار بیندازد. uv این محیط را خودکار می‌سازد."
+    },
+    {
+      "id": "q2",
+      "type": "multiple-choice",
+      "prompt": "در نصب Python روی Windows، فراموش کردن کدام گزینه باعث می‌شود terminal اصلا Python را پیدا نکند؟",
+      "options": [
+        "Install for all users",
+        "Download debug binaries",
+        "Add Python to PATH",
+        "Associate files with Python"
+      ],
+      "answer": 2,
+      "explanation": "PATH فهرست مسیرهایی است که terminal در آنها دنبال برنامه‌ها می‌گردد. بدون این تیک، Python نصب می‌شود اما terminal آن را نمی‌بیند."
+    },
+    {
+      "id": "q3",
+      "type": "fill-blank",
+      "prompt": "دستور نصب کتابخانه rich در پروژه را کامل کنید.",
+      "code": "uv ___ rich",
+      "answer": ["add"],
+      "explanation": "در uv دستور نصب یک کتابخانه `uv add` است. معادل آن در روش قدیمی `pip install` بود."
+    }
+  ]
+}
